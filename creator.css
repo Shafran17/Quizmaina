@@ -1,0 +1,93 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #ffffff, #ffffff);
+  color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  padding: 40px 20px 20px;
+   background: #110054;
+  color: #ffffff;
+  box-shadow: 10px 10px 8px 20px rgb(255, 255, 255);
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #ffffff;
+}
+
+.header p {
+  font-size: 1.2rem;
+  color: #dcdcdc;
+}
+
+/* Creators Container */
+.creators-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  padding: 40px 20px;
+}
+
+/* Individual Card */
+.card {
+  background: #ffffff;
+  color: #333;
+  border-radius: 15px;
+  padding: 20px;
+  width: 280px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 15px;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #2a5298;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Back Button */
+button {
+  margin: 40px 0;
+  padding: 10px 30px;
+  background-color: #2a5298;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #1e3c72;
+}

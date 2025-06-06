@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Quiz</title>
+  <link rel="stylesheet" href="quiz-javascript.css">
+</head>
+<body>
+  <h1>JavaScript Quiz</h1>
+
+  <!-- QUESTIONS START -->
+  <div class="question">
+    <strong>1. What is the correct syntax to output "Hello World" in JavaScript?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">console.log("Hello World");</button>
+      <button onclick="checkAnswer(this, 'wrong')">echo("Hello World");</button>
+      <button onclick="checkAnswer(this, 'wrong')">print("Hello World");</button>
+      <button onclick="checkAnswer(this, 'wrong')">document.write.console("Hello World");</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>2. Which keyword declares a variable in JavaScript?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">dim</button>
+      <button onclick="checkAnswer(this, 'correct')">let</button>
+      <button onclick="checkAnswer(this, 'wrong')">define</button>
+      <button onclick="checkAnswer(this, 'wrong')">int</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>3. Which of the following is a JavaScript data type?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">float</button>
+      <button onclick="checkAnswer(this, 'wrong')">char</button>
+      <button onclick="checkAnswer(this, 'correct')">boolean</button>
+      <button onclick="checkAnswer(this, 'wrong')">double</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>4. Which symbol is used for single-line comments in JavaScript?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">//</button>
+      <button onclick="checkAnswer(this, 'wrong')">#</button>
+      <button onclick="checkAnswer(this, 'wrong')">/* */</button>
+      <button onclick="checkAnswer(this, 'wrong')">--</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>5. Which method can be used to round a number in JavaScript?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">round()</button>
+      <button onclick="checkAnswer(this, 'correct')">Math.round()</button>
+      <button onclick="checkAnswer(this, 'wrong')">Math.rnd()</button>
+      <button onclick="checkAnswer(this, 'wrong')">num.round()</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>6. What will `typeof null` return?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">"null"</button>
+      <button onclick="checkAnswer(this, 'wrong')">"object null"</button>
+      <button onclick="checkAnswer(this, 'correct')">"object"</button>
+      <button onclick="checkAnswer(this, 'wrong')">"undefined"</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>7. What does the `isNaN()` function do?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Checks if a value is Not-a-Number</button>
+      <button onclick="checkAnswer(this, 'wrong')">Returns true for numbers only</button>
+      <button onclick="checkAnswer(this, 'wrong')">Checks if a value is undefined</button>
+      <button onclick="checkAnswer(this, 'wrong')">Checks for negative numbers</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>8. How do you write an if statement in JavaScript?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">if (condition) { }</button>
+      <button onclick="checkAnswer(this, 'wrong')">if condition then</button>
+      <button onclick="checkAnswer(this, 'wrong')">if [condition]</button>
+      <button onclick="checkAnswer(this, 'wrong')">if:condition</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>9. How do you define a function in JavaScript?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">function myFunc() { }</button>
+      <button onclick="checkAnswer(this, 'wrong')">def myFunc() { }</button>
+      <button onclick="checkAnswer(this, 'wrong')">func myFunc() { }</button>
+      <button onclick="checkAnswer(this, 'wrong')">Function:myFunc() { }</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>10. Which of the following is a looping structure in JavaScript?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">loop</button>
+      <button onclick="checkAnswer(this, 'correct')">for</button>
+      <button onclick="checkAnswer(this, 'wrong')">foreach</button>
+      <button onclick="checkAnswer(this, 'wrong')">repeat</button>
+    </div>
+  </div>
+  <!-- QUESTIONS END -->
+
+  <button class="score-btn" onclick="showScore()">Submit & Show Score</button>
+  <a href="home.html" class="back-btn">← Back to Home</a>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, status) {
+      const options = button.parentElement.querySelectorAll('button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (status === 'correct') {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+        options.forEach(btn => {
+          if (btn.onclick.toString().includes("'correct'")) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+
+      answered++;
+    }
+
+    function showScore() {
+      if (answered < 10) {
+        alert("⚠️ Please answer all questions before submitting.");
+        return;
+      }
+
+      let message = "";
+      if (score >= 5) {
+        message = `🎉 Congrats! You have great knowledge!\nYour Score: ${score}/10`;
+      } else {
+        message = `😞 You have weak knowledge.\nYour Score: ${score}/10`;
+      }
+
+      alert(message);
+    }
+  </script>
+</body>
+</html>

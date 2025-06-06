@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Java Quiz</title>
+  <link rel="stylesheet" href="quiz-java.css" />
+</head>
+<body>
+  <h1>Java Quiz</h1>
+
+  <!-- QUESTIONS START -->
+  <div class="question">
+    <strong>1. Which of these is the correct way to declare a variable in Java?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">var x = 10;</button>
+      <button onclick="checkAnswer(this, 'correct')">int x = 10;</button>
+      <button onclick="checkAnswer(this, 'wrong')">x := 10;</button>
+      <button onclick="checkAnswer(this, 'wrong')">let x = 10;</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>2. What is the size of an int data type in Java?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">32 bits</button>
+      <button onclick="checkAnswer(this, 'wrong')">64 bits</button>
+      <button onclick="checkAnswer(this, 'wrong')">16 bits</button>
+      <button onclick="checkAnswer(this, 'wrong')">8 bits</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>3. Which keyword is used to inherit a class in Java?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">extends</button>
+      <button onclick="checkAnswer(this, 'wrong')">implements</button>
+      <button onclick="checkAnswer(this, 'wrong')">inherits</button>
+      <button onclick="checkAnswer(this, 'wrong')">derives</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>4. Which method is the entry point of a Java program?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">public static void main(String[] args)</button>
+      <button onclick="checkAnswer(this, 'wrong')">main(String[] args)</button>
+      <button onclick="checkAnswer(this, 'wrong')">start()</button>
+      <button onclick="checkAnswer(this, 'wrong')">void main()</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>5. How do you create an object of a class named MyClass?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">MyClass obj = new MyClass();</button>
+      <button onclick="checkAnswer(this, 'correct')">MyClass obj = new MyClass();</button>
+      <button onclick="checkAnswer(this, 'wrong')">object obj = new MyClass();</button>
+      <button onclick="checkAnswer(this, 'wrong')">MyClass obj = MyClass();</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>6. Which of the following is a Java access modifier?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">protected</button>
+      <button onclick="checkAnswer(this, 'correct')">private</button>
+      <button onclick="checkAnswer(this, 'wrong')">secure</button>
+      <button onclick="checkAnswer(this, 'wrong')">publicized</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>7. Which package is imported by default in every Java program?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">java.lang</button>
+      <button onclick="checkAnswer(this, 'wrong')">java.util</button>
+      <button onclick="checkAnswer(this, 'wrong')">java.io</button>
+      <button onclick="checkAnswer(this, 'wrong')">java.net</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>8. Which of these is used to handle exceptions in Java?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">catch block</button>
+      <button onclick="checkAnswer(this, 'wrong')">try block</button>
+      <button onclick="checkAnswer(this, 'correct')">try-catch block</button>
+      <button onclick="checkAnswer(this, 'wrong')">throw block</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>9. Which of these loops will always execute at least once?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">for loop</button>
+      <button onclick="checkAnswer(this, 'correct')">do-while loop</button>
+      <button onclick="checkAnswer(this, 'wrong')">while loop</button>
+      <button onclick="checkAnswer(this, 'wrong')">foreach loop</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>10. Which keyword is used to create a constant variable?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">var</button>
+      <button onclick="checkAnswer(this, 'wrong')">const</button>
+      <button onclick="checkAnswer(this, 'correct')">final</button>
+      <button onclick="checkAnswer(this, 'wrong')">static</button>
+    </div>
+  </div>
+  <!-- QUESTIONS END -->
+
+  <button class="score-btn" onclick="showScore()">Submit & Show Score</button>
+  <a href="home.html" class="back-btn">← Back to Home</a>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, status) {
+      const options = button.parentElement.querySelectorAll('button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (status === 'correct') {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+        options.forEach(btn => {
+          if (btn.onclick.toString().includes("'correct'")) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+
+      answered++;
+    }
+
+    function showScore() {
+      if (answered < 10) {
+        alert("⚠️ Please answer all questions before submitting.");
+        return;
+      }
+
+      let message = "";
+      if (score >= 5) {
+        message = `🎉 Congrats! You have great knowledge!\nYour Score: ${score}/10`;
+      } else {
+        message = `😞 You have weak knowledge.\nYour Score: ${score}/10`;
+      }
+
+      alert(message);
+    }
+  </script>
+</body>
+</html>

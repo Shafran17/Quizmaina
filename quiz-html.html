@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>HTML Quiz</title>
+ <link rel="stylesheet" href="quiz-html.css">
+</head>
+<body>
+  <h1>HTML Quiz</h1>
+
+  
+      <!-- QUESTIONS START -->
+      <div class="question">
+        <strong>1. What does HTML stand for?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'wrong')">Hyperlinks and Text Markup Language</button>
+          <button onclick="checkAnswer(this, 'correct')">Hyper Text Markup Language</button>
+          <button onclick="checkAnswer(this, 'wrong')">Home Tool Markup Language</button>
+          <button onclick="checkAnswer(this, 'wrong')">Hyper Text Makeup Language</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>2. Which tag creates a hyperlink?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'correct')">&lt;a&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;link&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;href&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;url&gt;</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>3. Which tag creates a new line?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'correct')">&lt;br&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;lb&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;break&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;nl&gt;</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>4. Which tag is used for the largest heading?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'correct')">&lt;h1&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;h6&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;head&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;header&gt;</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>5. Which tag inserts an image?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'correct')">&lt;img&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;src&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;image&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;pic&gt;</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>6. What is the correct HTML for adding a background color?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'correct')">&lt;body style="background-color:yellow"&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;background&gt;yellow&lt;/background&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;body bg="yellow"&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;bg color="yellow"&gt;</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>7. What is the correct way to create a list?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'correct')">&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;list&gt;&lt;item&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;ol&gt;&lt;li&gt;Item</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;li&gt;Item&lt;/li&gt;</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>8. Which element defines a table row?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'wrong')">&lt;td&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;table&gt;</button>
+          <button onclick="checkAnswer(this, 'correct')">&lt;tr&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;row&gt;</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>9. Which tag is used for bold text?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'correct')">&lt;b&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;bold&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;strongtext&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;bt&gt;</button>
+        </div>
+      </div>
+
+      <div class="question">
+        <strong>10. Which tag defines the title in the browser tab?</strong>
+        <div class="options">
+          <button onclick="checkAnswer(this, 'wrong')">&lt;meta&gt;</button>
+          <button onclick="checkAnswer(this, 'correct')">&lt;title&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;head&gt;</button>
+          <button onclick="checkAnswer(this, 'wrong')">&lt;header&gt;</button>
+        </div>
+      </div>
+      <!-- QUESTIONS END -->
+    </div>
+
+    <button class="score-btn" onclick="showScore()">Submit & Show Score</button>
+  </div>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, status) {
+      const options = button.parentElement.querySelectorAll('button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (status === 'correct') {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+        options.forEach(btn => {
+          if (btn.onclick.toString().includes("'correct'")) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+
+      answered++;
+    }
+
+    function showScore() {
+      if (answered < 10) {
+        alert("Please answer all questions before submitting.");
+        return;
+      }
+
+      let message = score >= 5
+        ? `🎉 Congrats! You have great knowledge!\nYour Score: ${score}/10`
+        : `⚠️ You have weak knowledge.\nYour Score: ${score}/10`;
+
+      alert(message);
+    }
+  </script>
+  <div class="container">
+    <a href="home.html" class="back-btn">← Back to Home</a>
+    
+
+    <div class="question-block">
+
+</body>
+</html>

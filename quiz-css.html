@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Quiz</title>
+  <link rel="stylesheet" href="quiz-css.css">
+</head>
+<body>
+  <h1>CSS Quiz</h1>
+
+  <!-- QUESTIONS START -->
+  <div class="question">
+    <strong>1. What does CSS stand for?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Cascading Style Sheets</button>
+      <button onclick="checkAnswer(this, 'wrong')">Creative Style Sheets</button>
+      <button onclick="checkAnswer(this, 'wrong')">Computer Style Sheets</button>
+      <button onclick="checkAnswer(this, 'wrong')">Colorful Style Sheets</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>2. Which HTML tag is used to link an external CSS file?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">&lt;style&gt;</button>
+      <button onclick="checkAnswer(this, 'correct')">&lt;link&gt;</button>
+      <button onclick="checkAnswer(this, 'wrong')">&lt;script&gt;</button>
+      <button onclick="checkAnswer(this, 'wrong')">&lt;css&gt;</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>3. Which property is used to change the text color in CSS?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">font-color</button>
+      <button onclick="checkAnswer(this, 'wrong')">text-color</button>
+      <button onclick="checkAnswer(this, 'correct')">color</button>
+      <button onclick="checkAnswer(this, 'wrong')">text-style</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>4. Which symbol is used for an ID selector in CSS?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">*</button>
+      <button onclick="checkAnswer(this, 'correct')">#</button>
+      <button onclick="checkAnswer(this, 'wrong')">.</button>
+      <button onclick="checkAnswer(this, 'wrong')">@</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>5. What does the "box model" in CSS consist of?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Content, Padding, Border, Margin</button>
+      <button onclick="checkAnswer(this, 'wrong')">Tag, Text, Border, Background</button>
+      <button onclick="checkAnswer(this, 'wrong')">Height, Width, Display, Color</button>
+      <button onclick="checkAnswer(this, 'wrong')">Float, Clear, Position, Z-index</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>6. Which property controls the size of text?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">font-weight</button>
+      <button onclick="checkAnswer(this, 'correct')">font-size</button>
+      <button onclick="checkAnswer(this, 'wrong')">text-align</button>
+      <button onclick="checkAnswer(this, 'wrong')">font-style</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>7. How do you make a class selector in CSS?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">.classname</button>
+      <button onclick="checkAnswer(this, 'wrong')">#classname</button>
+      <button onclick="checkAnswer(this, 'wrong')">@classname</button>
+      <button onclick="checkAnswer(this, 'wrong')">$classname</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>8. Which property is used to make text bold in CSS?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">font-weight</button>
+      <button onclick="checkAnswer(this, 'wrong')">text-weight</button>
+      <button onclick="checkAnswer(this, 'wrong')">font-style</button>
+      <button onclick="checkAnswer(this, 'wrong')">bold</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>9. How do you center text in CSS?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">text-align: center;</button>
+      <button onclick="checkAnswer(this, 'wrong')">text-center: true;</button>
+      <button onclick="checkAnswer(this, 'wrong')">align: center;</button>
+      <button onclick="checkAnswer(this, 'wrong')">horizontal-align: middle;</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>10. What does `display: flex;` do in CSS?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Creates a flex container</button>
+      <button onclick="checkAnswer(this, 'wrong')">Makes content float</button>
+      <button onclick="checkAnswer(this, 'wrong')">Aligns text to left</button>
+      <button onclick="checkAnswer(this, 'wrong')">Changes font size</button>
+    </div>
+  </div>
+  <!-- QUESTIONS END -->
+
+  <button class="score-btn" onclick="showScore()">Submit & Show Score</button>
+  <a href="home.html" class="back-btn">← Back to Home</a>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, status) {
+      const options = button.parentElement.querySelectorAll('button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (status === 'correct') {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+        options.forEach(btn => {
+          if (btn.onclick.toString().includes("'correct'")) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+
+      answered++;
+    }
+
+    function showScore() {
+      if (answered < 10) {
+        alert("⚠️ Please answer all questions before submitting.");
+        return;
+      }
+
+      let message = "";
+      if (score >= 5) {
+        message = `🎉 Congrats! You have great knowledge!\nYour Score: ${score}/10`;
+      } else {
+        message = `😞 You have weak knowledge.\nYour Score: ${score}/10`;
+      }
+
+      alert(message);
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Django Quiz</title>
+  <link rel="stylesheet" href="quiz-django.css" />
+</head>
+<body>
+  <h1>Django Quiz</h1>
+
+  <!-- QUESTIONS START -->
+  <div class="question">
+    <strong>1. Which command is used to create a new Django project?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">django-startproject</button>
+      <button onclick="checkAnswer(this, 'correct')">django-admin startproject</button>
+      <button onclick="checkAnswer(this, 'wrong')">django create project</button>
+      <button onclick="checkAnswer(this, 'wrong')">django-newproject</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>2. Which file contains the URL patterns in a Django project?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">urls.py</button>
+      <button onclick="checkAnswer(this, 'wrong')">views.py</button>
+      <button onclick="checkAnswer(this, 'wrong')">settings.py</button>
+      <button onclick="checkAnswer(this, 'wrong')">models.py</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>3. What does the Django ORM stand for?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">Object Relational Model</button>
+      <button onclick="checkAnswer(this, 'correct')">Object Relational Mapper</button>
+      <button onclick="checkAnswer(this, 'wrong')">Open Resource Manager</button>
+      <button onclick="checkAnswer(this, 'wrong')">Object Relationship Method</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>4. Which command applies migrations to the database?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">python manage.py migrateall</button>
+      <button onclick="checkAnswer(this, 'correct')">python manage.py migrate</button>
+      <button onclick="checkAnswer(this, 'wrong')">python manage.py runmigrations</button>
+      <button onclick="checkAnswer(this, 'wrong')">python manage.py applymigrations</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>5. What is the default database used by Django?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">MySQL</button>
+      <button onclick="checkAnswer(this, 'correct')">SQLite</button>
+      <button onclick="checkAnswer(this, 'wrong')">PostgreSQL</button>
+      <button onclick="checkAnswer(this, 'wrong')">Oracle</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>6. Which Django feature handles user authentication?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">django.contrib.auth</button>
+      <button onclick="checkAnswer(this, 'wrong')">django.authenticator</button>
+      <button onclick="checkAnswer(this, 'wrong')">django.userauth</button>
+      <button onclick="checkAnswer(this, 'wrong')">django.security</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>7. What is the role of views in Django?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">Manage database tables</button>
+      <button onclick="checkAnswer(this, 'wrong')">Define URL patterns</button>
+      <button onclick="checkAnswer(this, 'correct')">Handle request and return response</button>
+      <button onclick="checkAnswer(this, 'wrong')">Manage static files</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>8. Which template engine does Django use by default?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Django Template Language (DTL)</button>
+      <button onclick="checkAnswer(this, 'wrong')">Jinja2</button>
+      <button onclick="checkAnswer(this, 'wrong')">Mako</button>
+      <button onclick="checkAnswer(this, 'wrong')">Mustache</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>9. How do you create a new app inside a Django project?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">django-admin createapp appname</button>
+      <button onclick="checkAnswer(this, 'correct')">python manage.py startapp appname</button>
+      <button onclick="checkAnswer(this, 'wrong')">django-admin newapp appname</button>
+      <button onclick="checkAnswer(this, 'wrong')">python manage.py createapp appname</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>10. Which command runs the Django development server?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">python manage.py runserver</button>
+      <button onclick="checkAnswer(this, 'wrong')">python manage.py startserver</button>
+      <button onclick="checkAnswer(this, 'wrong')">python manage.py server</button>
+      <button onclick="checkAnswer(this, 'wrong')">django-admin runserver</button>
+    </div>
+  </div>
+  <!-- QUESTIONS END -->
+
+  <button class="score-btn" onclick="showScore()">Submit & Show Score</button>
+  <a href="home.html" class="back-btn">← Back to Home</a>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, status) {
+      const options = button.parentElement.querySelectorAll('button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (status === 'correct') {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+        options.forEach(btn => {
+          if (btn.onclick.toString().includes("'correct'")) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+
+      answered++;
+    }
+
+    function showScore() {
+      if (answered < 10) {
+        alert("⚠️ Please answer all questions before submitting.");
+        return;
+      }
+
+      let message = "";
+      if (score >= 5) {
+        message = `🎉 Congrats! You have great knowledge!\nYour Score: ${score}/10`;
+      } else {
+        message = `😞 You have weak knowledge.\nYour Score: ${score}/10`;
+      }
+
+      alert(message);
+    }
+  </script>
+</body>
+</html>

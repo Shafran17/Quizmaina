@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: #fff;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+}
+
+.question {
+  background-color: #ffffff;
+  color: #333;
+  padding: 20px;
+  border-radius: 15px;
+  margin: 20px auto;
+  max-width: 600px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.question strong {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+}
+
+.options button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #e0e0e0;
+  transition: background-color 0.3s ease;
+}
+
+.options button:hover:not(:disabled) {
+  background-color: #d0d0d0;
+}
+
+.options button.correct {
+  background-color: #4caf50;
+  color: white;
+}
+
+.options button.wrong {
+  background-color: #f44336;
+  color: white;
+}
+
+.score-btn {
+  display: block;
+  margin: 40px auto;
+  padding: 12px 30px;
+  font-size: 1rem;
+  background-color: #2a5298;
+  border: none;
+  border-radius: 25px;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.score-btn:hover {
+  background-color: #1e3c72;
+}
+
+.back-btn {
+  display: block;
+  text-align: center;
+  margin: 30px auto;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  color: #2a5298;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 25px;
+  width: fit-content;
+  transition: background-color 0.3s ease;
+}
+
+.back-btn:hover {
+  background-color: #dfe6f3;
+}

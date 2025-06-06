@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Spring Boot Quiz</title>
+  <link rel="stylesheet" href="quiz-springboot.css" />
+</head>
+<body>
+  <h1>Spring Boot Quiz</h1>
+
+  <!-- QUESTIONS START -->
+  <div class="question">
+    <strong>1. What annotation is used to mark the main class of a Spring Boot application?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">@Spring</button>
+      <button onclick="checkAnswer(this, 'correct')">@SpringBootApplication</button>
+      <button onclick="checkAnswer(this, 'wrong')">@BootMain</button>
+      <button onclick="checkAnswer(this, 'wrong')">@EnableBoot</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>2. Which file is typically used to configure properties in a Spring Boot project?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">application.xml</button>
+      <button onclick="checkAnswer(this, 'wrong')">config.properties</button>
+      <button onclick="checkAnswer(this, 'correct')">application.properties</button>
+      <button onclick="checkAnswer(this, 'wrong')">spring-config.yaml</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>3. Which dependency is required to create a REST controller in Spring Boot?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">spring-boot-starter-data-jpa</button>
+      <button onclick="checkAnswer(this, 'correct')">spring-boot-starter-web</button>
+      <button onclick="checkAnswer(this, 'wrong')">spring-boot-starter-security</button>
+      <button onclick="checkAnswer(this, 'wrong')">spring-boot-starter-thymeleaf</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>4. What annotation is used to create a RESTful web service controller?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">@Controller</button>
+      <button onclick="checkAnswer(this, 'correct')">@RestController</button>
+      <button onclick="checkAnswer(this, 'wrong')">@Service</button>
+      <button onclick="checkAnswer(this, 'wrong')">@Component</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>5. How do you inject a bean into another in Spring Boot?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">@InjectBean</button>
+      <button onclick="checkAnswer(this, 'wrong')">@BeanInject</button>
+      <button onclick="checkAnswer(this, 'correct')">@Autowired</button>
+      <button onclick="checkAnswer(this, 'wrong')">@Resource</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>6. What port does a Spring Boot application run on by default?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">8081</button>
+      <button onclick="checkAnswer(this, 'correct')">8080</button>
+      <button onclick="checkAnswer(this, 'wrong')">9090</button>
+      <button onclick="checkAnswer(this, 'wrong')">80</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>7. Which annotation is used to map HTTP GET requests?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">@GetMapping</button>
+      <button onclick="checkAnswer(this, 'wrong')">@PostMapping</button>
+      <button onclick="checkAnswer(this, 'wrong')">@PutMapping</button>
+      <button onclick="checkAnswer(this, 'wrong')">@RequestMapping</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>8. Which Spring Boot feature allows easy integration with databases?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">Spring Security</button>
+      <button onclick="checkAnswer(this, 'correct')">Spring Data JPA</button>
+      <button onclick="checkAnswer(this, 'wrong')">Spring MVC</button>
+      <button onclick="checkAnswer(this, 'wrong')">Spring Batch</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>9. What annotation marks a class as a service component in Spring?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">@Service</button>
+      <button onclick="checkAnswer(this, 'wrong')">@Component</button>
+      <button onclick="checkAnswer(this, 'wrong')">@Repository</button>
+      <button onclick="checkAnswer(this, 'wrong')">@Controller</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>10. How do you start a Spring Boot application?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">SpringApplication.run(App.class);</button>
+      <button onclick="checkAnswer(this, 'correct')">SpringApplication.run(App.class, args);</button>
+      <button onclick="checkAnswer(this, 'wrong')">runSpring(App.class);</button>
+      <button onclick="checkAnswer(this, 'wrong')">startApplication(App.class);</button>
+    </div>
+  </div>
+  <!-- QUESTIONS END -->
+
+  <button class="score-btn" onclick="showScore()">Submit & Show Score</button>
+  <a href="home.html" class="back-btn">← Back to Home</a>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, status) {
+      const options = button.parentElement.querySelectorAll('button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (status === 'correct') {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+        options.forEach(btn => {
+          if (btn.onclick.toString().includes("'correct'")) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+
+      answered++;
+    }
+
+    function showScore() {
+      if (answered < 10) {
+        alert("⚠️ Please answer all questions before submitting.");
+        return;
+      }
+
+      let message = "";
+      if (score >= 5) {
+        message = `🎉 Congrats! You have great knowledge!\nYour Score: ${score}/10`;
+      } else {
+        message = `😞 You have weak knowledge.\nYour Score: ${score}/10`;
+      }
+
+      alert(message);
+    }
+  </script>
+</body>
+</html>

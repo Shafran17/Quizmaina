@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Python Quiz</title>
+  <link rel="stylesheet" href="quiz-python.css">
+</head>
+<body>
+  <h1>Python Quiz</h1>
+
+  <!-- QUESTIONS START -->
+  <div class="question">
+    <strong>1. What is the correct file extension for Python files?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">.py</button>
+      <button onclick="checkAnswer(this, 'wrong')">.pt</button>
+      <button onclick="checkAnswer(this, 'wrong')">.pyt</button>
+      <button onclick="checkAnswer(this, 'wrong')">.python</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>2. How do you insert comments in Python?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">// This is a comment</button>
+      <button onclick="checkAnswer(this, 'correct')"># This is a comment</button>
+      <button onclick="checkAnswer(this, 'wrong')">-- This is a comment</button>
+      <button onclick="checkAnswer(this, 'wrong')">/* This is a comment */</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>3. Which data type is used to store text in Python?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">int</button>
+      <button onclick="checkAnswer(this, 'correct')">str</button>
+      <button onclick="checkAnswer(this, 'wrong')">bool</button>
+      <button onclick="checkAnswer(this, 'wrong')">char</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>4. Which keyword is used to define a function in Python?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">function</button>
+      <button onclick="checkAnswer(this, 'wrong')">func</button>
+      <button onclick="checkAnswer(this, 'correct')">def</button>
+      <button onclick="checkAnswer(this, 'wrong')">define</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>5. What does the `len()` function do?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">Returns last item in a list</button>
+      <button onclick="checkAnswer(this, 'wrong')">Deletes an item</button>
+      <button onclick="checkAnswer(this, 'correct')">Returns length of an object</button>
+      <button onclick="checkAnswer(this, 'wrong')">Prints object type</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>6. Which of the following is a loop structure in Python?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">for</button>
+      <button onclick="checkAnswer(this, 'wrong')">repeat</button>
+      <button onclick="checkAnswer(this, 'wrong')">each</button>
+      <button onclick="checkAnswer(this, 'wrong')">loop</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>7. What is the output of `type(3.14)`?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">int</button>
+      <button onclick="checkAnswer(this, 'correct')">float</button>
+      <button onclick="checkAnswer(this, 'wrong')">double</button>
+      <button onclick="checkAnswer(this, 'wrong')">decimal</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>8. How do you start a block of code in Python?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">With curly braces {}</button>
+      <button onclick="checkAnswer(this, 'correct')">With indentation</button>
+      <button onclick="checkAnswer(this, 'wrong')">With brackets []</button>
+      <button onclick="checkAnswer(this, 'wrong')">With a semicolon</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>9. Which method adds an item to the end of a list?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">append()</button>
+      <button onclick="checkAnswer(this, 'wrong')">insert()</button>
+      <button onclick="checkAnswer(this, 'wrong')">add()</button>
+      <button onclick="checkAnswer(this, 'wrong')">push()</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>10. What is used to handle exceptions in Python?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">catch/throw</button>
+      <button onclick="checkAnswer(this, 'wrong')">try/catch</button>
+      <button onclick="checkAnswer(this, 'correct')">try/except</button>
+      <button onclick="checkAnswer(this, 'wrong')">if/error</button>
+    </div>
+  </div>
+  <!-- QUESTIONS END -->
+
+  <button class="score-btn" onclick="showScore()">Submit & Show Score</button>
+  <a href="home.html" class="back-btn">← Back to Home</a>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, status) {
+      const options = button.parentElement.querySelectorAll('button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (status === 'correct') {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+        options.forEach(btn => {
+          if (btn.onclick.toString().includes("'correct'")) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+
+      answered++;
+    }
+
+    function showScore() {
+      if (answered < 10) {
+        alert("⚠️ Please answer all questions before submitting.");
+        return;
+      }
+
+      let message = score >= 5
+        ? `🎉 Congrats! You have great knowledge!\nYour Score: ${score}/10`
+        : `😞 You have weak knowledge.\nYour Score: ${score}/10`;
+
+      alert(message);
+    }
+  </script>
+</body>
+</html>

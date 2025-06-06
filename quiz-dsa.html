@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>DSA Quiz</title>
+  <link rel="stylesheet" href="quiz-dsa.css" />
+</head>
+<body>
+  <h1>DSA Quiz</h1>
+
+  <!-- QUESTIONS START -->
+  <div class="question">
+    <strong>1. What data structure uses FIFO (First In First Out) principle?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Queue</button>
+      <button onclick="checkAnswer(this, 'wrong')">Stack</button>
+      <button onclick="checkAnswer(this, 'wrong')">Tree</button>
+      <button onclick="checkAnswer(this, 'wrong')">Graph</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>2. Which data structure is used in recursion?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">Queue</button>
+      <button onclick="checkAnswer(this, 'correct')">Stack</button>
+      <button onclick="checkAnswer(this, 'wrong')">Linked List</button>
+      <button onclick="checkAnswer(this, 'wrong')">Array</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>3. What is the time complexity of binary search on a sorted array?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">O(n)</button>
+      <button onclick="checkAnswer(this, 'correct')">O(log n)</button>
+      <button onclick="checkAnswer(this, 'wrong')">O(n log n)</button>
+      <button onclick="checkAnswer(this, 'wrong')">O(1)</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>4. Which algorithm technique divides the problem into smaller subproblems?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Divide and Conquer</button>
+      <button onclick="checkAnswer(this, 'wrong')">Greedy</button>
+      <button onclick="checkAnswer(this, 'wrong')">Dynamic Programming</button>
+      <button onclick="checkAnswer(this, 'wrong')">Backtracking</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>5. What kind of data structure is a Binary Search Tree?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Tree</button>
+      <button onclick="checkAnswer(this, 'wrong')">Graph</button>
+      <button onclick="checkAnswer(this, 'wrong')">Linked List</button>
+      <button onclick="checkAnswer(this, 'wrong')">Stack</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>6. Which sorting algorithm has the best average-case time complexity?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">Bubble Sort</button>
+      <button onclick="checkAnswer(this, 'correct')">Merge Sort</button>
+      <button onclick="checkAnswer(this, 'wrong')">Insertion Sort</button>
+      <button onclick="checkAnswer(this, 'wrong')">Selection Sort</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>7. What does DFS stand for in graph traversal?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'wrong')">Directed Forward Search</button>
+      <button onclick="checkAnswer(this, 'correct')">Depth-First Search</button>
+      <button onclick="checkAnswer(this, 'wrong')">Data Flow Search</button>
+      <button onclick="checkAnswer(this, 'wrong')">Dynamic Function Search</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>8. What is the worst case time complexity of quicksort?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">O(n²)</button>
+      <button onclick="checkAnswer(this, 'wrong')">O(n log n)</button>
+      <button onclick="checkAnswer(this, 'wrong')">O(log n)</button>
+      <button onclick="checkAnswer(this, 'wrong')">O(n)</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>9. Which data structure is best for implementing recursion?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Stack</button>
+      <button onclick="checkAnswer(this, 'wrong')">Queue</button>
+      <button onclick="checkAnswer(this, 'wrong')">Graph</button>
+      <button onclick="checkAnswer(this, 'wrong')">Heap</button>
+    </div>
+  </div>
+
+  <div class="question">
+    <strong>10. What is a characteristic of a Min-Heap?</strong>
+    <div class="options">
+      <button onclick="checkAnswer(this, 'correct')">Parent node is smaller than its children</button>
+      <button onclick="checkAnswer(this, 'wrong')">Parent node is greater than its children</button>
+      <button onclick="checkAnswer(this, 'wrong')">It's a type of Linked List</button>
+      <button onclick="checkAnswer(this, 'wrong')">It's unsorted</button>
+    </div>
+  </div>
+  <!-- QUESTIONS END -->
+
+  <button class="score-btn" onclick="showScore()">Submit & Show Score</button>
+  <a href="home.html" class="back-btn">← Back to Home</a>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function checkAnswer(button, status) {
+      const options = button.parentElement.querySelectorAll('button');
+      options.forEach(btn => btn.disabled = true);
+
+      if (status === 'correct') {
+        button.classList.add('correct');
+        score++;
+      } else {
+        button.classList.add('wrong');
+        options.forEach(btn => {
+          if (btn.onclick.toString().includes("'correct'")) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+
+      answered++;
+    }
+
+    function showScore() {
+      if (answered < 10) {
+        alert("⚠️ Please answer all questions before submitting.");
+        return;
+      }
+
+      let message = "";
+      if (score >= 5) {
+        message = `🎉 Congrats! You have great knowledge!\nYour Score: ${score}/10`;
+      } else {
+        message = `😞 You have weak knowledge.\nYour Score: ${score}/10`;
+      }
+
+      alert(message);
+    }
+  </script>
+</body>
+</html>
