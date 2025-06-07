@@ -1,0 +1,129 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #eef2f7;
+  color: #222;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body:hover {
+ background: linear-gradient(#57aeff, #ffffff);   color: rgb(140, 61, 61);
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
+
+/* Login container */
+.login-container {
+  width: 340px;
+  background: #fff;
+  padding: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  text-align: center;
+}
+.login-container:hover {
+ background: linear-gradient(#004e96, #000000);   color: rgb(0, 0, 0);
+  color: #ffffff;
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.8);
+}
+
+.login-container h1 {
+  color: #1565c0;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+h1:hover {
+ background: linear-gradient(#004e96, #000000);   color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
+
+.login-container .tagline {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 25px;
+}
+.login-container .tagline:hover {
+ background: linear-gradient(#004e96, #000000);   color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
+
+.login-container input {
+  width: 90%;
+  padding: 12px;
+  margin: 12px 0;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #aaa;
+  transition: border 0.3s ease;
+}
+
+.login-container input:focus {
+  border-color: #1976d2;
+  outline: none;
+}
+.login-container input:hover {
+ background: linear-gradient(#004e96, #000000);   color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
+
+.login-container button {
+  width: 95%;
+  padding: 12px;
+  background: #1976d2;
+  color: white;
+  border: none;
+  font-size: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.login-container button:hover {
+
+ background: linear-gradient(#004e96, #000000);   color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
+#loginFrom>placeholder:hover {
+ background: linear-gradient(#004e96, #f91414);   color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
+#msg {
+  margin-top: 15px;
+  color: red;
+  font-weight: bold;
+  font-size: 14px;
+}
+#msg:hover {
+ background: linear-gradient(#004e96, #000000);   color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
+.note:hover {
+ background: linear-gradient(#004e96, #000000);   color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}

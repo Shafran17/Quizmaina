@@ -2,17 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Login - Quizmania </title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Login | Quizmania</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
   <div class="login-container">
-    <h1>Login / Signup</h1>
-    <input type="text" id="username" placeholder="Enter username" />
-    <button id="loginBtn">Login</button>
-    <p id="msg"></p>
+    <h1>Welcome to Quizmania</h1>
+    <p class="tagline">Test Your Software Engineering Knowledge</p>
+
+    <form id="loginForm">
+      <input type="text" placeholder="Username" name="username" required /><br><br>
+      <input type="password" placeholder="Password" name="password" required /><br><br>
+      <button type="submit">Login</button>
+    </form>
+
+    <p class="note">Don't have an account? Just use any username for now!</p>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    // This will catch the form submission
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();  // Stop normal submit
+      
+      // Grab username and password (you can add validation here)
+      const username = this.username.value.trim();
+      const password = this.password.value.trim();
+
+      if(username === "" || password === "") {
+        alert("Please fill both fields!");
+        return;
+      }
+
+      // Redirect to home.html on successful "login"
+      window.location.href = 'home.html';
+    });
+  </script>
 </body>
 </html>

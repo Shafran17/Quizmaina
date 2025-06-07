@@ -2,15 +2,26 @@ body {
   margin: 0;
   padding: 20px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #1e3c72, #2a5298);
-  color: #fff;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   min-height: 100vh;
 }
-
+body:hover {
+ background: linear-gradient( #1e3c72, #2a5298);  color: rgb(255, 255, 255);
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
 h1 {
   text-align: center;
   font-size: 2.8rem;
   margin-bottom: 30px;
+}
+h1:hover {
+ background: linear-gradient(#004e96, #000000);   color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
 }
 
 .question {
@@ -22,12 +33,26 @@ h1 {
   max-width: 600px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
-
+.question:hover {
+  background: linear-gradient(#63b1f5, #000000);
+  color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
 .question strong {
   display: block;
   margin-bottom: 15px;
   font-size: 1.2rem;
 }
+strong:hover {
+background: linear-gradient(#004e96, #000000);
+  color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
+
 
 .options button {
   display: block;
@@ -43,7 +68,12 @@ h1 {
 }
 
 .options button:hover:not(:disabled) {
-  background-color: #d0d0d0;
+
+  background: linear-gradient(#004e96, #000000);  color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+
 }
 
 .options button.correct {
@@ -61,8 +91,8 @@ h1 {
   margin: 40px auto;
   padding: 12px 30px;
   font-size: 1rem;
-  background-color: #2a5298;
-  border: none;
+ background-color: #2e85cb;
+   border: none;
   border-radius: 25px;
   color: white;
   cursor: pointer;
@@ -70,8 +100,12 @@ h1 {
 }
 
 .score-btn:hover {
-  background-color: #1e3c72;
+  background: linear-gradient(#004e96, #000000);  color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
 }
+
 
 .back-btn {
   display: block;
@@ -79,7 +113,7 @@ h1 {
   margin: 30px auto;
   padding: 10px 20px;
   background-color: #ffffff;
-  color: #2a5298;
+ color: #2a5298;
   text-decoration: none;
   font-weight: bold;
   border-radius: 25px;
@@ -88,5 +122,8 @@ h1 {
 }
 
 .back-btn:hover {
-  background-color: #dfe6f3;
+  background: linear-gradient(#004e96, #000000);  color: whitesmoke;
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
 }

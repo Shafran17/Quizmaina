@@ -10,6 +10,12 @@ body {
   color: #222;
   min-height: 100vh;
 }
+body:hover {
+ background: linear-gradient( #1e3c72, #2a5298);  color: rgb(255, 255, 255);
+  
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
+}
 
 /* Login container */
 .login-container {
