@@ -127,3 +127,24 @@ h1:hover {
   transform: translateY(-8px);
   box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
 }
+
+
+/* Mobile Responsive for Login Page */
+@media (max-width: 480px) {
+  .login-container {
+    width: 90% !important;  /* Full width but with some margin */
+    padding: 20px !important; /* Thoda kam padding mobile ke liye */
+  }
+
+  .login-container input {
+    width: 100% !important; /* Inputs full width */
+    font-size: 18px !important; /* Thoda bada font for easier typing */
+  }
+
+  .login-container button {
+    width: 100% !important; /* Button full width */
+    font-size: 18px !important;
+    padding: 14px !important;
+  }
+}
+

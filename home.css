@@ -161,24 +161,53 @@ p:hover {
   box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
 }
 
-/* Responsive font sizes */
-@media (max-width: 500px) {
+
+/* Mobile Responsive adjustments for Home Page */
+@media (max-width: 480px) {
   header {
+  
+    padding: 15px 20px;
+    font-size: 1.2rem;
+  }
+
+  header h1 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    text-align: left;
+  }
+
+  header button {
+    padding: 8px 16px;
     font-size: 0.6rem;
-    padding: 30px;
+  
   }
-  h1{
-    padding: 10px;
+
+  .banner {
+    height: 250px;
+    max-width: 90%;
+    margin: 20px auto;
+    border-radius: 12px;
   }
+
   .banner-text h2 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
+
   .banner-text p {
     font-size: 1rem;
   }
-  .quiz-card {
-    font-size: 1.2rem;
-    padding: 25px 18px;
+
+  .quiz-grid {
+    max-width: 100%;
+    margin: 30px 10px 50px;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 20px;
+    padding: 0 5px;
   }
-  
+
+  .quiz-card {
+    padding: 25px 15px;
+    font-size: 1.2rem;
+    border-radius: 15px;
+  }
 }

@@ -131,3 +131,56 @@ button:hover {
   transform: translateY(-8px);
   box-shadow: 0 14px 30px rgba(13, 71, 161, 0.8);
 }
+/* Add this at the end of your CSS */
+
+/* Responsive Design for smaller devices */
+@media (max-width: 768px) {
+  .creators-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 10px;
+  }
+
+  .card {
+    width: 90%;
+    max-width: 350px;
+  }
+  
+  .header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .header p {
+    font-size: 1rem;
+  }
+  
+  button {
+    width: 90%;
+    max-width: 300px;
+    padding: 12px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .header p {
+    font-size: 0.9rem;
+  }
+
+  .card img {
+    height: 150px;
+  }
+
+  .card h2 {
+    font-size: 1.3rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+}
